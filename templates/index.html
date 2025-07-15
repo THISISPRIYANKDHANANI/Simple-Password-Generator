@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Generator</title>
+    <!-- Make sure it works on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to our CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Main container that centers everything -->
+    <div class="container">
+        <!-- Page title and description -->
+        <div class="header">
+            <h1>Password Generator</h1>
+            <p>Create secure passwords with custom options</p>
+        </div>
+
+        <!-- Two-column layout: settings on left, results on right -->
+        <div class="row">
+            <!-- Left column: Password generation settings -->
+            <div class="col">
+                <div class="card">
+                    <h2>Generate Password</h2>
+
+                    <!-- Password length slider -->
+                    <div class="form-group">
+                        <label>Password Length:</label>
+                        <div class="slider-container">
+                            <input type="range" id="length" class="slider" min="4" max="64" value="12">
+                            <div class="length-display" id="lengthDisplay">12</div>
+                        </div>
+                    </div>
+
+                    <!-- Character type selection -->
+                    <div class="form-group">
+                        <label>Character Types:</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lowercase" checked>
+                                <label for="lowercase">Lowercase (a-z)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="uppercase" checked>
+                                <label for="uppercase">Uppercase (A-Z)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="digits" checked>
+                                <label for="digits">Digits (0-9)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="symbols" checked>
+                                <label for="symbols">Symbols (!@#$...)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Optional character exclusion -->
+                    <div class="form-group">
+                        <label>Exclude Characters:</label>
+                        <input type="text" id="exclude" placeholder="Enter characters to exclude...">
+                    </div>
+
+                    <!-- Generate button -->
+                    <button class="btn" onclick="generatePassword()">Generate Password</button>
+                </div>
+            </div>
+
+            <!-- Right column: Generated password and analysis -->
+            <div class="col">
+                <div class="card">
+                    <h2>Generated Password</h2>
+
+                    <!-- The generated password appears here -->
+                    <div class="password-display" id="passwordDisplay">
+                        Click "Generate Password" to create a secure password
+                    </div>
+
+                    <!-- Copy button -->
+                    <button class="btn btn-success" onclick="copyPassword()">Copy Password</button>
+
+                    <!-- Visual strength meter -->
+                    <div class="strength-meter">
+                        <div class="strength-text" id="strengthText">Password Strength: Not Generated</div>
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Security feedback and tips -->
+                    <div class="feedback" id="feedback">
+                        <strong>Security Tips:</strong>
+                        <ul>
+                            <li>Use at least 12 characters</li>
+                            <li>Include uppercase, lowercase, numbers, and symbols</li>
+                            <li>Avoid common words and patterns</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Password enhancement section -->
+        <div class="card">
+            <h2>Password Enhancement</h2>
+            <p>Enter your current weak password to make it stronger:</p>
+
+            <!-- Enhancement form with 3 columns -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 15px; align-items: end;">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Current Password:</label>
+                    <input type="password" id="weakPassword" placeholder="Enter your weak password...">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Target Length:</label>
+                    <input type="number" id="targetLength" value="16" min="8" max="32">
+                </div>
+                <button class="btn" onclick="enhancePassword()">Enhance</button>
+            </div>
+
+            <!-- Results section (hidden until enhancement is done) -->
+            <div class="enhancement-results" id="enhancementResults">
+                <h3>Enhancement Results:</h3>
+                <!-- Before and after comparison -->
+                <div class="comparison">
+                    <div class="comparison-item before">
+                        <h4>Before:</h4>
+                        <div class="password" id="beforePassword"></div>
+                        <div id="beforeStrength"></div>
+                    </div>
+                    <div class="comparison-item after">
+                        <h4>After:</h4>
+                        <div class="password" id="afterPassword"></div>
+                        <div id="afterStrength"></div>
+                    </div>
+                </div>
+                <!-- Improvement summary -->
+                <div id="improvementDetails"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to our JavaScript file -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

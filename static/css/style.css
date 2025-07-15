@@ -1,0 +1,317 @@
+/*
+ * Password Generator Styles
+ * Clean, modern design that works on all devices
+ * Uses a purple gradient background with white cards
+ */
+
+/* Main page styling */
+body {
+    font-family: Arial, sans-serif;  /* Simple, readable font */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* Purple gradient */
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;  /* Full height */
+    font-size: 14px;  /* Comfortable reading size */
+}
+
+/* Center everything on the page */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;  /* Centers the container */
+}
+
+/* Page title styling */
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* White cards that contain the main content */
+.card {
+    background: rgba(255, 255, 255, 0.95);  /* Slightly transparent white */
+    border-radius: 15px;  /* Rounded corners */
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);  /* Drop shadow for depth */
+}
+
+.card h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;  /* Dark gray text */
+}
+
+/* Two-column layout for desktop */
+.row {
+    display: flex;
+    gap: 20px;  /* Space between columns */
+}
+
+.col {
+    flex: 1;  /* Equal width columns */
+}
+
+/* Spacing for form elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Form labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 1em;
+}
+
+/* Password length slider styling */
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.slider {
+    flex: 1;  /* Takes up most of the space */
+    height: 8px;
+    border-radius: 5px;
+    background: #ddd;  /* Light gray track */
+    outline: none;  /* Remove browser outline */
+}
+
+/* The number display next to the slider */
+.length-display {
+    background: #667eea;  /* Purple background */
+    color: white;
+    padding: 10px 16px;
+    border-radius: 20px;  /* Pill shape */
+    font-weight: bold;
+    min-width: 55px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* Character type checkboxes in a 2x2 grid */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Two equal columns */
+    gap: 12px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Make checkboxes a bit bigger and purple */
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #667eea;  /* Purple checkmarks */
+}
+
+.checkbox-item label {
+    font-size: 0.95em;
+    margin-bottom: 0;  /* Override the default label margin */
+}
+
+/* Text input fields styling */
+input[type="text"], input[type="password"], input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;  /* Light gray border */
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box;  /* Include padding in width calculation */
+}
+
+/* Purple border when focused */
+input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:focus {
+    outline: none;  /* Remove browser outline */
+    border-color: #667eea;  /* Purple border */
+}
+
+.btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.password-display {
+    background: #f8f9fa;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 16px;
+    font-family: monospace;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+    word-break: break-all;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-display.generated {
+    background: #e8f5e8;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.strength-meter {
+    margin-bottom: 20px;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.strength-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease, background-color 0.5s ease;
+    width: 0%;
+}
+
+.strength-fill.very-weak {
+    background: #dc3545;
+}
+
+.strength-fill.weak {
+    background: #fd7e14;
+}
+
+.strength-fill.medium {
+    background: #ffc107;
+}
+
+.strength-fill.strong {
+    background: #20c997;
+}
+
+.strength-fill.very-strong {
+    background: #28a745;
+}
+
+.strength-text {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.05em;
+}
+
+.feedback {
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    padding: 16px;
+    border-radius: 6px;
+    font-size: 0.95em;
+}
+
+.enhancement-results {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.comparison-item h4 {
+    margin-bottom: 10px;
+}
+
+.comparison-item .password {
+    font-family: monospace;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    word-break: break-all;
+}
+
+.comparison-item.before .password {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.comparison-item.after .password {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: #28a745;
+}
+
+.notification.error {
+    background: #dc3545;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+}
