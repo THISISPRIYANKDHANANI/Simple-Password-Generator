@@ -252,3 +252,8 @@ This project is provided for educational purposes. Feel free to use, modify, and
    - Disable "ensure strength" temporarily if needed
 
 For additional help, check the error messages and ensure all dependencies are properly installed.
+
+# output
+![img](https://github.com/user-attachments/assets/a56be603-25fe-4baf-b8aa-aba73e747089")
+![img](https://github.com/user-attachments/assets/fd928272-a824-4994-9cfc-57eafea9979b)
+![img](https://github.com/user-attachments/assets/0358df67-bdf1-40cb-8f5b-c1fb73119aef)
