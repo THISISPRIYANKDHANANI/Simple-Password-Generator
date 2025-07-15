@@ -1,5 +1,15 @@
 # Password Generator
 
+COMPANY: Oasis Infobyte
+
+NAME: Priyank Dhanani
+
+"INTERN ID: OIB/J1/IP3779
+
+*DOMAIN: PYTHON PROGRAMMING
+
+*DURATION: 4 WEEEKS
+
 A web-based tool for creating secure passwords. I built this to help people generate strong passwords easily without having to think about all the security requirements.
 
 ## What it does
